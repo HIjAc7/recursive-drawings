@@ -17,9 +17,9 @@ public class Driver extends JPanel implements ActionListener {
 		g.fillRect(0, 0, 1000, 1000);
 //		concentricRings(0, 0, 100, 10, g);
 //		squares(300, 300, 100, g);
-		// donut(400, 400, 0, 200, g);
+//		donut(400, 400, 0, 200, g);
 //		clover(200, 200, 100,10, g);
-		snowFlake(100,100,100,200,200,g);
+//		snowFlake(5,100,100,500,500,g);
 	}
 
 	public void concentricRings(int x, int y, int width, int s, Graphics g) {
@@ -49,11 +49,17 @@ public class Driver extends JPanel implements ActionListener {
 		if(len<=0) {
 			return;
 		}else {
-			g.setColor(Color.white);
+			g.setColor(newColor());
+			g.drawLine(x1, y1+(y2-y1)/2, x2, y2-(y2-y1)/2);
+			g.drawLine(x1+(x2-x1)/4, y1+(y2-y1)/12, x2-(x2-x1)/4,y2-(y2-y1)/12);
+			g.drawLine(x2-(x2-x1)/4, y1+(y2-y1)/12, x1+(x2-x1)/4, y2-(y2-y1)/12);
+			snowFlake(len-1, x1 + (x2-x1)/12,y1+(y2-y1)/12-(y2-y1)/4+ (x2-x1)/12,x1+(x2-x1)/2- (x2-x1)/12, y1+(y2-y1)/12+(y2-y1)/4- (x2-x1)/12,g);
+			snowFlake(len-1, x1+(x2-x1)/12,y2-(y2-y1)/12-(y2-y1)/4+(x2-x1)/12,x1+(x2-x1)/2-(x2-x1)/12, y2-(y2-y1)/12+(y2-y1)/4-(x2-x1)/12,g);
+			snowFlake(len-1, x2-(x2-x1)/2+(x2-x1)/12,y2-(y2-y1)/12-(y2-y1)/4+(x2-x1)/12,x2-(x2-x1)/12, y2-(y2-y1)/12+(y2-y1)/4-(x2-x1)/12,g);
+			snowFlake(len-1, x2-(x2-x1)/2+(x2-x1)/12,y1+(y2-y1)/12-(y2-y1)/4+(x2-x1)/12,x2-(x2-x1)/12, y1+(y2-y1)/12+(y2-y1)/4-(x2-x1)/12,g);
+			snowFlake(len-1, x2-(x2-x1)/4+(x2-x1)/12,y1+(y2-y1)/4+(x2-x1)/12,x2+(x2-x1)/4-(x2-x1)/12, y2-(y2-y1)/4-(x2-x1)/12,g);
+			snowFlake(len-1, x1-(x2-x1)/4+(x2-x1)/12,y1+(y2-y1)/4+(x2-x1)/12,x1+(x2-x1)/4-(x2-x1)/12, y2-(y2-y1)/4-(x2-x1)/12,g);
 
-			g.drawLine(x1, y1+len/2, x2, y2-len/2);
-			g.drawLine(x1+len/4, y1, x2-len/4,y2);
-			g.drawLine(x2-len/4, y1, x1+len/4, y2);
 		}
 	}
 
@@ -77,7 +83,7 @@ public class Driver extends JPanel implements ActionListener {
 	int red = 0, green = 200, blue = 100;
 
 	public void donut(int x, int y, int angle, int width, Graphics g) {
-
+		
 	}
 
 	public void spiral(int x, int y, int angle, int width, Graphics g) {
@@ -85,7 +91,7 @@ public class Driver extends JPanel implements ActionListener {
 	}
 
 	public void binTree(int x1, int y1, int x2, int y2, int len, Graphics g) {
-
+		
 	}
 	public Color newColor() {
 		int red = (int)(Math.random()*256);
