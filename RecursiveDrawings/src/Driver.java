@@ -15,11 +15,11 @@ public class Driver extends JPanel implements ActionListener {
 	public void paint(Graphics g) {
 		g.setColor(Color.black);
 		g.fillRect(0, 0, 1000, 1000);
-//		concentricRings(0, 0, 100, 10, g);
-//		squares(300, 300, 100, g);
+		concentricRings(0, 0, 200, 20, g);
+		squares(650, 100, 60, g);
 //		donut(400, 400, 0, 200, g);
-//		clover(200, 200, 100,10, g);
-//		snowFlake(5,100,100,500,500,g);
+		clover(0, 300, 100,10, g);
+		snowFlake(4,285,200,585,500,g);
 	}
 
 	public void concentricRings(int x, int y, int width, int s, Graphics g) {
