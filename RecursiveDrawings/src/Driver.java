@@ -15,11 +15,11 @@ public class Driver extends JPanel implements ActionListener {
 	public void paint(Graphics g) {
 		g.setColor(Color.black);
 		g.fillRect(0, 0, 1000, 1000);
-		concentricRings(0, 0, 200, 20, g);
-		squares(650, 100, 60, g);
-//		donut(400, 400, 0, 200, g);
-		clover(0, 300, 100,10, g);
-		snowFlake(4,285,200,585,500,g);
+//		concentricRings(0, 0, 200, 20, g);
+	//	squares(650, 100, 60, g);
+		donut(200, 200, 0, 200, g);
+		//clover(0, 300, 100,10, g);
+		//snowFlake(4,285,200,585,500,g);
 	}
 
 	public void concentricRings(int x, int y, int width, int s, Graphics g) {
@@ -82,8 +82,14 @@ public class Driver extends JPanel implements ActionListener {
 
 	int red = 0, green = 200, blue = 100;
 
-	public void donut(int x, int y, int angle, int width, Graphics g) {
-		
+	public void donut(int x, int y, double angle, int width, Graphics g) {
+		if(angle>=(int)(2*Math.PI)) {
+			return;
+		}else {
+			g.setColor(newColor());
+			g.drawOval(x+(int)(Math.cos(angle)*width), y+(int)(Math.sin(angle)*width), width, width);
+			donut(x,y,angle+Math.PI/64,width,g);
+		}
 	}
 
 	public void spiral(int x, int y, int angle, int width, Graphics g) {
